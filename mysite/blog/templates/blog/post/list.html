@@ -5,7 +5,7 @@
 {% block content %}
     <h1>My Blog</h1><hr>
     {% for post in posts %}
-        <div class='card text-white bg-success mb-3'>
+        <div class='card alert-success mb-3'>
         <h2>
             <a href="{{ post.get_absolute_url }}" class="ml-2">
                 {{ post.title }}
@@ -20,10 +20,9 @@
         </div>
     {% endfor %}
 
-    <div class="card">
-        <div >
-            <!-- {% include 'pagination.html' with page=posts %} -->
-            {% include 'pagination.html' with page=page_obj %}
-        </div>
+
+    <div class="pb-5 text-capitalize">
+        <!-- {% include 'pagination.html' with page=posts %} -->
+        {% include 'pagination.html' with page=page_obj %}
     </div>
 {% endblock %}
