@@ -1,19 +1,39 @@
 {% extends 'blog/base.html' %}
+{% load  %}
 
 {% block title %} My Blog {% endblock %}
 
 {% block content %}
-    <h1>My Blog</h1><hr>
+    {% comment %} <h1>My Blog</h1><hr> {% endcomment %}
+
+    {% if tag %}
+        <h2>Posts tagged with "{{ tag.name }}"</h2>
+    {% endif %}
+
     {% for post in posts %}
-        <div class=' alert-info mb-3 card-deck'>
+        <div class=' alert-info mb-3 card-deck col'>
             <h2>
                 <a href="{{ post.get_absolute_url }}" class="ml-2 text-decoration-none font-italic">
                     {{ post.title }}
                 </a>
             </h2>
-            <p class="date ml-4">
-                Published {{ post.publish }} by {{ post.author }}
-            </p>
+            <div>
+                <div>
+                    <p class="date ml-4">
+                    Published {{ post.publish }} by {{ post.author }}
+                    </p>
+                </div>
+                <div>
+                    <h6 class='row ml-5'>                        
+                        Tags: {% for tag in post.tags.all %}
+                            <a class='text-decoration-none' href="{% url "blog:post_list_by_tag" tag.slug %}">
+                                {{ tag.name }} 
+                            </a>
+                            {% if not forloop.last %},{% endif %}
+                        {% endfor %}
+                    </h6>
+                </div>
+            </div>
             <div class="ml-5">
                 {{ post.body|truncatewords:30|linebreaks }}
             </div>
