@@ -1,3 +1,115 @@
-h2 > a {
+body{
+    background:lightblue;
     color: black;
+}
+
+#head{
+    background: black;
+    color: lightsalmon;
+}
+
+#sidebar{
+    position: fixed;
+    margin-top: 100px;
+    padding-left: -10px;
+}
+
+#posts_list{
+    border-radius: 1.5%;
+}
+
+#content{
+    margin-left: auto;
+}
+
+.alert-info{
+    background-color:lightblue;
+    border-left: 3px solid lightseagreen;
+    color: black;
+}
+a {
+    color: black;
+}
+
+a:hover {
+    color: crimson;
+    text-decoration: none;
+}
+
+#right-sidebar{
+    margin-bottom: auto;
+    border-radius: 2%;
+}
+
+#right-sidebar > p{
+    font-style: italic;
+    font-size: large;
+    font-weight: 500;
+    color: black;
+}
+
+ul>li{
+    list-style-type: disc;
+}
+
+#latest_posts{
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 2%;
+    padding-right: 2px;
+    padding-left: 10px;
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+    border-left: 3px solid lightseagreen;
+}
+
+#latest_posts>ul{
+    padding-left: 30px;
+}
+
+#most_commented{
+    background-color: rgb(255, 255, 255);
+    border-radius: 2%;
+    padding-left: 10px;
+    border-left: 3px solid lightseagreen;
+}
+
+#most_commented >ul{
+    padding-left: 30px;
+}
+
+
+
+.btn-outline-dark{
+    color: black;
+}
+
+.btn-outline-dark:hover{
+    background: black;
+    color: beige;
+}
+
+.btn-outline-info{
+    border-color:black;
+    color: beige;
+}
+.btn-outline-info:hover{
+    background: lightgreen;
+    color: black;
+    border-color: black;
+}
+
+.comment-by{
+    background: beige;
+    color: black;
+}
+
+.text-dark{
+    color: beige;
+    outline-color: beige;
+}
+
+.text-dark:hover{
+    text-decoration: none;
+    color: beige;
 }

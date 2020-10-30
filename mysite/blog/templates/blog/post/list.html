@@ -11,9 +11,9 @@
     {% endif %}
 
     {% for post in posts %}
-        <div class=' alert-info mb-3 card-deck col'>
+        <div class=' alert-info mb-3 card-deck col' id='posts_list'>
             <h2>
-                <a href="{{ post.get_absolute_url }}" class="ml-2 text-decoration-none font-italic">
+                <a id=='anchor' href="{{ post.get_absolute_url }}" class="ml-2 text-decoration-none font-italic">
                     {{ post.title }}
                 </a>
             </h2>
@@ -43,6 +43,6 @@
 
     <div class="pb-5 text-capitalize" class=''>
         <!-- {% include 'pagination.html' with page=posts %} -->
-        {% include 'pagination.html' with page=page_obj %}
+        {% include 'pagination.html' with page=posts %}
     </div>
 {% endblock %}

@@ -14,10 +14,21 @@
     </div>
 
     <button type="button" class="btn btn-outline-info">
-            <a href="{% url 'blog:post_share' post.id %}" class="text-decoration-none text-dark">
+            <a class='text-dark' href="{% url 'blog:post_share' post.id %}">
                 Share This Post
             </a>
     </button>
+
+    <div class='mt-5 border-primary'>
+        <h2>Similar posts</h2>
+        {% for post in similar_posts %}
+            <p>
+                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+            </p>
+            {% empty %}
+                There are no similar posts yet.
+        {% endfor %}
+    </div>
 
     {% with comments.count as total_comments %}
         <div class="border-info mt-5">
@@ -28,12 +39,12 @@
     {% endwith %}
 
     {% for comment in comments %}
-        <div class="card border-info badge-pill pl-4 mb-3 pt-2">
-            <p class="" >
+        <div class="card pt-2 mb-2 comment-by">
+            <p class="ml-2" >
                 Comment {{ forloop.counter }} by {{ comment.name }}
                 {{ comment.created }}
             </p>
-            <div class="card alert-info badge-pill pl-4 mb-3 pt-2">
+            <div class="card badge-pill pl-4 mb-3 pt-2 ml-1 mr-1">
                 {{ comment.body|linebreaks }}
             </div>
         </div>
@@ -50,7 +61,7 @@
                 <div>
                     {{ comment_form.as_p }}
                     {% csrf_token %}
-                    <p><input type="submit" value='Add Comment' class="btn btn-info"></p>
+                    <p><input type="submit" value='Add Comment' class="btn btn-outline-info"></p>
                 </div>
             </form>
         </div>
