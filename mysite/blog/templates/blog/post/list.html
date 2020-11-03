@@ -1,5 +1,5 @@
 {% extends 'blog/base.html' %}
-{% load  %}
+{% load blog_tags %}
 
 {% block title %} My Blog {% endblock %}
 
@@ -35,7 +35,8 @@
                 </div>
             </div>
             <div class="ml-5">
-                {{ post.body|truncatewords:30|linebreaks }}
+                {% comment %} {{ post.body|truncatewords:30|linebreaks }} {% endcomment %}
+                {{ post.body|markdown|truncatewords_html:30 }}
             </div>
         </div>
     {% endfor %}
