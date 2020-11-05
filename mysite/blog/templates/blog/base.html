@@ -39,6 +39,11 @@
         </div>
         <div class='col col-sm-3' id='right-sidebar'>
             <p>I have written {% total_posts %} posts so far. Lots more coming in.</p>
+            <div id='rss-feed'>
+                <p>
+                    <a href="{% url "blog:post_feed" %}">Subscribe to my RSS</a>
+                </p>
+            </div>
             <div id='latest_posts'>
                 <h2>Latest Posts</h2>
                 {% show_latest_posts 3 %}

@@ -30,6 +30,15 @@ body{
     background-color:lightblue;
     border-left: 3px solid lightseagreen;
     color: black;
+    border-radius: 10px;
+}
+
+.date-publish{
+    background-color:lightblue;
+    /* border: 2px solid lightseagreen; */
+    color: black;
+    border-radius: 10px;
+    padding: 3px;
 }
 a {
     color: black;
@@ -91,7 +100,13 @@ ul>li{
     padding-left: 30px;
 }
 
-
+#rss-feed{
+    margin-top: 15px;
+    background-color: burlywood;
+    border-radius: 10%;
+    padding-left: 10px;
+    border-left: 3px solid lightseagreen;
+}
 
 .btn-outline-dark{
     color: black;
