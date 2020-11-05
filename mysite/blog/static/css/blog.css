@@ -7,6 +7,10 @@ body{
     color: black;
 }
 
+strong{
+    color: red;
+}
+
 #head{
     background: black;
     color: lightsalmon;
@@ -106,6 +110,13 @@ ul>li{
     border-radius: 10%;
     padding-left: 10px;
     border-left: 3px solid lightseagreen;
+}
+
+#query{
+    border-bottom: 3px solid lightskyblue;
+    /* border-radius: 10%; */
+    margin-bottom: 2%;
+
 }
 
 .btn-outline-dark{

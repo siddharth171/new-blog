@@ -7,29 +7,30 @@
 
 {% block content %}
     {% if query %}
-        <h1>Posts containing "{{ query }}"</h1>
-        <h3>
+        <h2>Posts containing <strong>"{{ query }}"</strong></h2>
+        <h4 class='mb-5'>
             {% with results.count as total_results %}
                 Found {{ total_results }} result {{ total_results|pluralize }}
             {% endwith %}
-        </h3>
+        </h4>
         {% for post in results %}
-            <h4>
-                <a href="{{ post.get_absolute_url }}">
-                    {{ post.title }}
-                </a>
-            </h4>
+            <div id='query'>
+                <h5>
+                    <a href="{{ post.get_absolute_url }}">
+                        {{ post.title }}
+                    </a>
+                </h5>
             {{ post.body|markdown|truncatewords_html:5 }}
+            </div>
             {% empty %}
                 <p>There are no results for your query.</p>
         {% endfor %}
-        <p>
-            <a href="{% url 'blog:post_search' %}">Search again</a>
-        </p>
+                <a class=' mt-5 btn btn-outline-info text-dark' href="{% url 'blog:post_search' %}">Search again</a>
     {% else %}
         <h1>Search for posts</h1>
         <form method="GET">
             {{ form.as_p }}
+            {% csrf_token %}
             <input type="submit" value='Search' class='btn btn-outline-info text-dark'>
         </form>
     {% endif %}
